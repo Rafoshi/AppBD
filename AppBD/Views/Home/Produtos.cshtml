@@ -1,0 +1,54 @@
+﻿@model IEnumerable<AppBD.Models.Produto>
+
+@{
+    List<AppBD.Models.Produto> todosProdutos = ViewBag.TodosProdutos;
+    ViewBag.Title = "Produtos";
+}
+
+<h2>Produtos</h2>
+
+<p>
+    @Html.ActionLink("Criar novo Produto", "CriarProduto")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantidade)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (AppBD.Models.Produto item in todosProdutos)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantidade)
+            </td>
+            <td>
+                @Html.ActionLink("Atualizar", "AtualizarProduto", new { produtoID = item.Codigo }) |
+                @Html.ActionLink("Excluir", "ExcluirProduto", new { produtoID = item.Codigo })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.ActionLink("Voltar para o menu", "Index", "Home")

@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+<style>
+    main {
+        display: flex;
+        justify-content: space-around;
+    }
+</style>
+<main>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Cliente</h5>
+            <p class="card-text">Excluir, atualizar e mostrar o registro de um cliente.</p>
+            @Html.ActionLink("Ir para cliente", "Clientes", "Home", new { @class = "btn  btn-primary" })
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Funcionário</h5>
+            <p class="card-text">Excluir, atualizar e mostrar o registro de um Funcionário.</p>
+            @Html.ActionLink("Ir para funcionário", "Funcionarios", "Home", new { @class = "btn  btn-primary" })
+
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Produto</h5>
+            <p class="card-text">Excluir, atualizar e mostrar o registro de um produto.</p>
+            @Html.ActionLink("Ir para produto", "Produtos", "Home", new { @class="btn  btn-primary"})
+        </div>
+    </div>
+</main>

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<AppBD.Models.Funcionario>
+
+@{
+    List<AppBD.Models.Funcionario> todosFuncionarios = ViewBag.TodosFuncionarios;
+    ViewBag.Title = "Funcionarios";
+}
+
+<h2>Funcionarios</h2>
+
+<p>
+    @Html.ActionLink("Adicionar um funcionário", "AdicionarFuncionario")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cpf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Logradouro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroEndereco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (AppBD.Models.Funcionario item in todosFuncionarios)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Logradouro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroEndereco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.ActionLink("Atualizar", "AtualizarFuncionario", new { funcionarioID = item.Codigo }) |
+                @Html.ActionLink("Excluir", "ExcluirFuncionario", new { funcionarioID = item.Codigo })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.ActionLink("Voltar para o menu", "Index", "Home")

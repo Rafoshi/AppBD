@@ -1,0 +1,40 @@
+CREATE DATABASE IF NOT EXISTS APPDB;
+
+USE APPDB;
+
+CREATE TABLE IF NOT EXISTS TBL_CLIENTE(
+	cliente_cod INT PRIMARY KEY AUTO_INCREMENT,
+    cliente_nome VARCHAR(255) NOT NULL,
+    cliente_cpf VARCHAR(14) NOT NULL,
+    cliente_telefone VARCHAR(13) NOT NULL,
+    cliente_logradouro VARCHAR(255) NOT NULL,
+    cliente_cidade VARCHAR(255) NOT NULL,
+    cliente_estado VARCHAR(255) NOT NULL,
+    cliente_numero VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS TBL_FUNCIONARIO(
+	func_cod INT PRIMARY KEY AUTO_INCREMENT,
+    func_nome VARCHAR(255) NOT NULL,
+    func_cpf VARCHAR(14) NOT NULL,
+    func_telefone VARCHAR(13) NOT NULL,
+    func_logradouro VARCHAR(255) NOT NULL,
+    func_cidade VARCHAR(255) NOT NULL,
+    func_estado VARCHAR(255) NOT NULL,
+    func_numero VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS TBL_PRODUTO(
+	prod_cod INT PRIMARY KEY AUTO_INCREMENT,
+    prod_nome VARCHAR(255) NOT NULL,
+    prod_valor VARCHAR(20) NOT NULL,
+	prod_quantidade VARCHAR(255) NOT NULL
+);
+
+-- DROP DATABASE IF EXISTS APPDB;
+
+-- DROP USER 'ioshi'@'localhost';
+
+CREATE USER IF NOT EXISTS 'ioshi'@'localhost' IDENTIFIED BY '123';
+-- ALTER USER 'ioshi'@'localhost' PASSWORD EXPIRE NEVER;
+GRANT ALL PRIVILEGES ON appdb.* TO 'ioshi'@'localhost' WITH GRANT OPTION;
